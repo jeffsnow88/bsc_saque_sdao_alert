@@ -1,9 +1,7 @@
-# -*- coding: utf-8 -*-
 import requests
 import json
-import winsound
 import time
-from plyer import notification
+#from plyer import notification
 
 
 
@@ -31,7 +29,7 @@ while True:
 
 	r = requests.request('GET', host + prefix + url + "?" + query_param, headers=headers)
 	json_data = r.json()
-	
+
 	bsc_withdraw = json_data[1]['is_withdraw_disabled']
 
 	# Obtém a hora atual do sistema
@@ -41,16 +39,16 @@ while True:
 	hora_formatada = time.strftime("%H:%M:%S", hora_atual)
 
 	if bsc_withdraw == 1:
-		print("BSC DESABILITADO - " + hora_formatada)
+		print(f"BSC DESABILITADO - " + hora_formatada, end="\r")
 		#message = "SAQUE BLOQUEADO NA REDE BSC  - " + hora_formatada +  " @ReachNextSupport"
 		#post_message_telegram(message,"-819860381")
 
-		
+
 	else:
 		print("BSC HABILITADO - " + hora_formatada)
 		titulo = 'SAQUE SDAO BSC NA GATE'
 		mensagem = 'LIBERADO!'
-		notification.notify(title=titulo, message=mensagem)
+		#notification.notify(title=titulo, message=mensagem)
 		message = "SAQUE LIBERADO NA REDE BSC  - " + hora_formatada +  " @ReachNextSupport"
 		post_message_telegram(message,"-819860381")
 	time.sleep(15)
