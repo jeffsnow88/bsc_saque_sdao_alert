@@ -41,7 +41,7 @@ while True:
 	hora_formatada = time.strftime("%H:%M:%S", hora_atual)
 
 	if bsc_withdraw == 1:
-		print(f"BSC DESABILITADO - " + hora_formatada, end="\r")
+		print("BSC DESABILITADO - " + hora_formatada)
 		#message = "SAQUE BLOQUEADO NA REDE BSC  - " + hora_formatada +  " @ReachNextSupport"
 		#post_message_telegram(message,"-819860381")
 
